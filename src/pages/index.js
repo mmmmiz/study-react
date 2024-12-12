@@ -1,8 +1,8 @@
 import Image from "next/image";
 import localFont from "next/font/local";
 import { Footer} from "../components/Footer";
-import Links from "../components/Links";
-import Hedline from "../components/Headline";
+import {Links} from "../components/Links";
+import {Hedline} from "../components/Headline";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

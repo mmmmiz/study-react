@@ -13,7 +13,7 @@ import localFont from "next/font/local";
 //   weight: "100 900",
 // });
 
-export default function Hedline(props) {
+export function Hedline(props) {
     // console.log(props.title);
   return (
     <>
