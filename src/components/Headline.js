@@ -14,7 +14,6 @@ import localFont from "next/font/local";
 // });
 
 export function Hedline(props) {
-    // console.log(props.title);
   return (
     <>
         <Image
@@ -28,13 +27,12 @@ export function Hedline(props) {
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
             {props.title} by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/pages/{props.page}.js
-            </code>
+            {props.children}
             .
           </li>
           <li>Save and see your changes instantly.</li>
         </ol>
+        {/* <button onClick={props.onClick}>ボタン</button> */}
     </>
   );
 }
