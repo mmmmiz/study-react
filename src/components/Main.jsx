@@ -1,5 +1,5 @@
-import {Links} from "../components/Links";
-import {Hedline} from "../components/Headline";
+import {Links} from "@/components/Links";
+import {Hedline} from "@/components/Headline";
 
 export function Main(props) {
   return (
