@@ -5,6 +5,7 @@ import { Main } from "../components/Main";
 import { Header } from "../components/Header";
 import { useCallback } from "react";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,6 +19,15 @@ const geistMono = localFont({
 });
 
 export default function Home() {
+  useEffect(() => {
+    console.log("マウント時");
+    document.body.style.backgroundColor = "lightblue";
+    return()=>{
+      console.log("アンマウント時");
+      document.body.style.backgroundColor = "";
+    }
+      },[]);
+
   const handleClick= useCallback((e)=> {
     console.log(e.target)
     e.preventDefault();

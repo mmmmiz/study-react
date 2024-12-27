@@ -1,9 +1,10 @@
 import {Links} from "@/components/Links";
 import {Hedline} from "@/components/Headline";
+import { useEffect } from "react";
 
 export function Main(props) {
+
   return (
-    
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Hedline  page={props.page}
         // onClick={()=>alert('クリックされました！')}
