@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   return(
-    <>aaaa
+    <>mizuho
     <Component {...pageProps} />
     </>
   ) ;
