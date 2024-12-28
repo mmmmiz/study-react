@@ -8,6 +8,8 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useState } from "react";
 
+
+//------------------------------------フォント読み込み
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -20,15 +22,13 @@ const geistMono = localFont({
 });
 
 
+//------------------------------------コンポーネントここから
 
 export default function Home() {
   const [count, setCount] = useState(0);
 const [isShow, setIsShow] = useState(true);
 const [text,setText] = useState("");
-  // const handleClick = (e) =>{
-  //   setCount((count)=> count + 1);
-  //   setCount((count)=> count + 1);
-  // };
+//------------------------------------カウンター設置
 
   const handleClick = useCallback(() => {
     console.log(count);
@@ -36,16 +36,21 @@ const [text,setText] = useState("");
       setCount((count) => count + 1);
     }
   }, [count]);
-const handleChange = (e)=>{
+  //------------------------------------inputの文字制限
+
+  const handleChange = (e)=>{
   if(e.target.value.length > 5){
     alert("5文字以内で入力してください");
   }
   setText(e.target.value);
 };
+//------------------------------------カウンター表示非表示
 
   const handleDesplay = useCallback(()=>{
     setIsShow((isShow)=> !isShow);
   },[]);
+
+//------------------------------------マウントによる背景色の出し分け
 
   useEffect(() => {
     console.log("マウント時");
@@ -60,6 +65,7 @@ const handleChange = (e)=>{
   //   console.log(e.target)
   //   e.preventDefault();
   // },[]);
+//------------------------------------表示エレメント
 
   return (
     <div
@@ -70,10 +76,6 @@ const handleChange = (e)=>{
       {isShow? <h1>{count}</h1> : null}
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleDesplay}>{isShow? "非表示":"表示"}</button>
-      {/* <Link href="/about"
-        onClick={handleClick}>
-        ボタン
-      </Link> */}
      <input type="text" onChange={handleChange} value={text}/>
       <Footer />
     </div>
