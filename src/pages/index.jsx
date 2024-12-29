@@ -28,6 +28,7 @@ export default function Home() {
   const [count, setCount] = useState(0);
 const [isShow, setIsShow] = useState(true);
 const [text,setText] = useState("");
+const [array,setArray] = useState([]);
 //------------------------------------カウンター設置
 
   const handleClick = useCallback(() => {
@@ -60,7 +61,17 @@ const [text,setText] = useState("");
       document.body.style.backgroundColor = "";
     };
   }, []);
+//------------------------------------inputで入力した文字を配列に追加して表示
 
+  const handleAdd= useCallback(()=>{
+    setArray((prevArray)=> {
+      if(prevArray.some((item)=> item === text)){
+        alert("同じ要素があります");
+        return prevArray;
+      }
+      return [...prevArray,text];
+    });
+  },[text]);
   // const handleClick= useCallback((e)=> {
   //   console.log(e.target)
   //   e.preventDefault();
@@ -77,6 +88,10 @@ const [text,setText] = useState("");
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleDesplay}>{isShow? "非表示":"表示"}</button>
      <input type="text" onChange={handleChange} value={text}/>
+     <button onClick={handleAdd}>追加</button>
+     <ul>{array.map((item) =>{
+      return <li key = {item}> {item}</li>
+     })}</ul>
       <Footer />
     </div>
   );
