@@ -33,7 +33,7 @@ const [text,setText] = useState("");
   const handleClick = useCallback(() => {
     console.log(count);
     if (count < 10) {
-      setCount((count) => count + 1);
+      setCount((prevcount) => prevcount + 1);
     }
   }, [count]);
   //------------------------------------inputの文字制限
@@ -47,7 +47,7 @@ const [text,setText] = useState("");
 //------------------------------------カウンター表示非表示
 
   const handleDesplay = useCallback(()=>{
-    setIsShow((isShow)=> !isShow);
+    setIsShow((previsShow)=> !previsShow);
   },[]);
 
 //------------------------------------マウントによる背景色の出し分け
